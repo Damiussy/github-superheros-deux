@@ -21,13 +21,11 @@ fetch(apiUrl)
 
         <p><strong>Lieu de naissance :</strong> ${data.biography['place-of-birth']}</p> 
 
-        <p><strong>Taille :</strong> ${data.appearance.height[1]}</p> 
-        
-        `;
+        <p><strong>Taille :</strong> ${data.appearance.height[1]}</p> `;
     })
     .catch( ( error ) => console.log("Erreur : ", error));
 
-/* Exercice 1 – Votre première promesse
+/* EXO1 – PREMIERE PROMESSE
 Créez une fonction chargerHeros() qui :
     1. Attend 2 secondes,
     2. Puis renvoie “Le héros est prêt !” si tout va bien,
@@ -37,8 +35,10 @@ function chargerHeros() {
     return  new Promise((resolve, reject) => {
         const succes = true
 
-        setTimeout((succes) => {
-            if (true) 
+        // Fonction call back : fonct fléchée appelée dans la promesse (fonction dans une fonction)
+        // setTimeout(callbackFunction: Function, delay: number)
+        setTimeout(() => {
+            if (succes) 
                 resolve("Le héros est prêt !");
             else 
                 reject("Le héros s’est perdu...");
@@ -46,7 +46,29 @@ function chargerHeros() {
     });
 }
 
-// Test avec .then() et .catch()
-chargerHeros()
-    .then((message) => console.log(message))
-    .catch((erreur) => console.error(erreur))
+/* EXO 2 - API ET DOM
+Afficher dans la console : Le prénom et le nom de l’utilisateur renvoyé par l’API. 
+Puis l’afficher dans le DOM (sur votre page HTML).
+
+// Entrée de l'utilisateur qu'on va envoyer à l'API
+var nameInput = prompt("Ton prénom :")
+var lastNameInput = prompt("Ton nom :")
+
+
+const newHero = {
+    name: nameInput,
+    lastName : lastNameInput
+};
+
+// LE LIEN NE MARCHE PLUS
+fetch("https://reqres.in/api/users", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(newHero) // On transforme l’objet en texte JSON !
+})
+    .then((res) => res.json())
+    .then((data) => console.log("Héros créé :", data))
+    .catch((err) => console.error("Erreur :", err));
+   
+console.log("test :",JSON.stringify(newHero));
+*/
