@@ -26,3 +26,27 @@ fetch(apiUrl)
         `;
     })
     .catch( ( error ) => console.log("Erreur : ", error));
+
+/* Exercice 1 – Votre première promesse
+Créez une fonction chargerHeros() qui :
+    1. Attend 2 secondes,
+    2. Puis renvoie “Le héros est prêt !” si tout va bien,
+    3. Ou une erreur “Le héros s’est perdu...” sinon. */
+
+function chargerHeros() {
+    return  new Promise((resolve, reject) => {
+        const succes = true
+
+        setTimeout((succes) => {
+            if (true) 
+                resolve("Le héros est prêt !");
+            else 
+                reject("Le héros s’est perdu...");
+        }, 1500);
+    });
+}
+
+// Test avec .then() et .catch()
+chargerHeros()
+    .then((message) => console.log(message))
+    .catch((erreur) => console.error(erreur))
