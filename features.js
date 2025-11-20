@@ -7,12 +7,11 @@
 // ========================================
 
 // 1. heros.json -> liste de hero [{   "hey":"value" ;     },]
-// 2. loadHeros
-// 3. appel de loadHeros
-// 4. verifier qu'on retrouve les géros dans APPLICATION > Storage > LocalStorage
-// 5. puis on les affiches avec displayHeros()
-// 6. localStorage.getItem("heroes ");
-
+// 2. TO DO loadHeros
+// 3. TO DO appel de loadHeros
+// 4. TO DO verifier qu'on retrouve les géros dans APPLICATION > Storage > LocalStorage
+// 5. TO DO puis on les affiches avec displayHeros()
+// 6. TO DO localStorage.getItem("heroes ");
 
 async function loadHeroes() {
     const savedHeroes = localStorage.getItem('heroes'); //recuper du local storage
@@ -27,6 +26,22 @@ async function loadHeroes() {
         localStorage.setItem('heroes', JSON.stringify(heroes)); // mettre à jour local storage
     }
 }
+// Save objet dans le local Storage
+localStorage.setItem(hero1,JSON.stringify({"name":"Superman"}));
+
+const hero1Value = localStorage.getItem("hero1")
+console.log("hero1Value : ",hero1Value);
+    
+function removeHero1Item() {
+    // Supprimer ce qu'il y a dans le storage1
+    localStorage.removeItem("hero1");
+}
+// DANS HTML button onclick=removeHero1Item()
+
+
+
+
+
 
 // ========================================
 // FEATURE
