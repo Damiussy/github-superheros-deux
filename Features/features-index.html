@@ -17,15 +17,42 @@
             display: flex;
             flex-wrap: wrap;
         }
+        /* New style for the form */
+        #addHeroForm {
+            background: #eef;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            max-width: 400px;
+        }
+        #addHeroForm input {
+            display: block;
+            margin-bottom: 10px;
+            width: 100%;
+            padding: 5px;
+        }
     </style>
 </head>
 <body>
 
     <h1>Liste des Héros (LocalStorage)</h1>
 
+    <div id="addHeroForm">
+        <h3>Ajouter un nouveau héros</h3>
+        <form id="heroForm">
+            <input type="text" id="heroName" placeholder="Nom du héros (ex: Jiafei)" required>
+            <input type="text" id="heroRealName" placeholder="Vrai nom (ex: Jiafei Lenussy)" required>
+            <input type="number" id="heroPower" placeholder="Puissance (0-100)" min="0" max="100" required>
+            <button type="submit">Enregistrer le Héros</button>
+        </form>
+    </div>
+
     <div id="heroesList"></div>
 
-    <button onclick="localStorage.clear(); location.reload();">Reset Storage</button>
+    <br>
+    <button onclick="localStorage.clear(); location.reload();" style="background:red; color:white; border:none; padding:10px;">
+        Reset Storage
+    </button>
 
     <script src="features.js"></script>
 </body>

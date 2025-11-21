@@ -1,17 +1,11 @@
-// ========================================
-// FEATURE STORAGE-HEROES
-// ========================================
+// ====================================================
+// FEATURE STORAGE-HEROES-AND-SAVE-ON-LOCAL-STORAGE
+// ====================================================
 // 1. Stocker
 // 2. Lire
 // 3. les heros dans un heroes.json local 
-// ========================================
-
-// 1. heros.json -> liste de hero [{   "hey":"value" ;     },]
-// 2. loadHeros
-// 3. appel de loadHeros
-// 4. verifier qu'on retrouve les géros dans APPLICATION > Storage > LocalStorage
-// 5. puis on les affiches avec displayHeros()
-// 6. localStorage.getItem("heroes ");
+// 4. Sauvegarder les heros lus dans le local storage
+// ====================================================
 
 // Charger les héros
 async function loadHeroes() {
@@ -58,40 +52,51 @@ function displayHeroes(heroes) {
     });
 }
 
+// Création d’un formulaire d’ajout d’un nouveau héros et ajoute due nouveau heros
+// au local storage depuis form js (addEventListener). Lors de la soumission,
+// récup les valeurs des inputs et créer new objet héros.
+function setupFormListener() {
+    const form = document.getElementById('heroForm');
+    
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Empêche la page de se recharger
+
+        // Récupérer les valeurs
+        const nameInput = document.getElementById('heroName').value;
+        const realNameInput = document.getElementById('heroRealName').value;
+        const powerInput = document.getElementById('heroPower').value;
+
+        // Créer le nouvel objet héros
+        const newHero = {
+            id: Date.now(), // ID unique basé sur la date
+            name: nameInput,
+            biography: {
+                "full-name": realNameInput,
+                "publisher": "Custom"
+            },
+            stats: {
+                power: powerInput,
+                speed: Math.floor(Math.random() * 100), // Random pour simplifier...
+                strength: Math.floor(Math.random() * 100)
+            }
+        };
+
+        // Sauvegarder dans le LocalStorage
+        const currentHeroes = JSON.parse(localStorage.getItem('heroes')) || [];
+        currentHeroes.push(newHero);
+        localStorage.setItem('heroes', JSON.stringify(currentHeroes));
+
+        // Rafraîchir l'affichage
+        displayHeroes(currentHeroes);
+
+        // Vider le formulaire
+        form.reset();
+        console.log("Nouveau héros ajouté :", newHero.name);
+    });
+}
+
 // Lancer l'application
-document.addEventListener('DOMContentLoaded', loadHeroes);
-
-// ========================================
-// FEATURE
-// ========================================
-// 1. Afficher dans une page html
-// ========================================
-
-// TO DO
-
-// ========================================
-// FEATURE 
-// ========================================
-// 1. Sauvegarder les heros lus dans le local storage
-// ========================================
-
-// TO DO
-
-// ========================================
-// FEATURE 
-// ========================================
-// 1. Création d’un formulaire d’ajout d’un nouveau héros
-// ========================================
-
-// TO DO
-
-// ========================================
-// FEATURE 
-// ========================================
-// 1. Ajouter ce nouveau heros au local storage depuis le formulaire js (avec
-// addEventListener). Lors de la soumission, récupérer les valeurs des inputs et
-// créer un nouvel objet héros.
-// ========================================
+document.addEventListener('DOMContentLoaded', () => { loadHeroes(); setupFormListener(); });
 
 // TO DO
 
