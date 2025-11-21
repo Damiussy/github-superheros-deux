@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "name": "Shanon",
+    "biography": {
+        "publisher": "Floptropica",
+        "full-name": "Shanon Debussy"
+    },
+    "stats": {
+      "intelligence": "3",
+      "strength": "1",
+      "speed": "99",
+      "durability": "10",
+      "power": "10",
+      "combat": "10"
+    }
+  }
+]

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Héros Locaux</title>
+    <style>
+        /* A little style so it doesn't look too plain */
+        .hero-card {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin: 10px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            max-width: 300px;
+        }
+        #heroesList {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Liste des Héros (LocalStorage)</h1>
+
+    <div id="heroesList"></div>
+
+    <button onclick="localStorage.clear(); location.reload();">Reset Storage</button>
+
+    <script src="feature.js"></script>
+</body>
+</html>
