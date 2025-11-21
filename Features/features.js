@@ -1,17 +1,11 @@
-// ========================================
-// FEATURE STORAGE-HEROES
-// ========================================
+// ====================================================
+// FEATURE STORAGE-HEROES-AND-SAVE-IN-LOCAL-STORAGE
+// ====================================================
 // 1. Stocker
 // 2. Lire
 // 3. les heros dans un heroes.json local 
-// ========================================
-
-// 1. heros.json -> liste de hero [{   "hey":"value" ;     },]
-// 2. loadHeros
-// 3. appel de loadHeros
-// 4. verifier qu'on retrouve les géros dans APPLICATION > Storage > LocalStorage
-// 5. puis on les affiches avec displayHeros()
-// 6. localStorage.getItem("heroes ");
+// 4. Sauvegarder les heros lus dans le local storage
+// ====================================================
 
 // Charger les héros
 async function loadHeroes() {
@@ -61,53 +55,57 @@ function displayHeroes(heroes) {
 // Lancer l'application
 document.addEventListener('DOMContentLoaded', loadHeroes);
 
-// ========================================
-// FEATURE SAVE-LOCAL-HERO
-// ========================================
-// 1. Sauvegarder les heros lus dans le local storage
-// ========================================
-
-// Sauvegarder
-// localStorage.setItem('heroes', JSON.stringify(heroesArray));
-
-// Récupérer
-// const heroes = JSON.parse(localStorage.getItem('heroes')) || [];
-// ● Cela permet de conserver les héros même si la page est rechargée
-
-// TO DO : FORMULAIRE POUR RENTRER LES DONNEES DU HERO QUI VONT ETRE STOCKE DANS LE LOCALSTORAGE
-
-
-
-
-
-
-
-
-// ========================================
-// FEATURE 
-// ========================================
+// ================================================================================
+// FEATURE FORM-MANAGE-HERO
+// ================================================================================
 // 1. Création d’un formulaire d’ajout d’un nouveau héros
-// ========================================
+// 2. Ajouter ce nouveau heros au local storage depuis form js (addEventListener). 
+// Lors de la soumission, récup les valeurs des inputs et créer new objet héros.
+// ================================================================================
 
-// TO DO
+// EN TRAIN
 
-// ========================================
-// FEATURE 
-// ========================================
-// 1. Ajouter ce nouveau heros au local storage depuis le formulaire js (avec
-// addEventListener). Lors de la soumission, récupérer les valeurs des inputs et
-// créer un nouvel objet héros.
-// ========================================
-
-// TO DO
-
-// ========================================
-// FEATURE 
-// ========================================
+// ==========================================================================
+// FEATURE DELETE-HERO-IN-LOCAL-STORAGE
+// ==========================================================================
 // 1. Suppression d’un héros spécifique de votre liste et du local storage.
-// ========================================
+// ==========================================================================
 
-// TO DO
+// Fonction permettant la suppression d’un héros spécifique
+function deleteHero(heroNameToDelete) {
+    // On récupère les objets stockés
+    const heroes = JSON.parse(localStorage.getItem('heroes')) || [];
+
+    // FIX 1: On a enlevé les accolades { } pour que le filtre marche direct !
+    const updatedHeroes = heroes.filter(hero => hero.name !== heroNameToDelete);
+    
+    // Sauvegarde du nouveau localstorage
+    localStorage.setItem('heroes', JSON.stringify(updatedHeroes));
+
+    // On met à jour l'affichage
+    displayHeroes(updatedHeroes);
+
+    // Confirmation pour le debuggage
+    console.log("Héros supprimé : ", heroNameToDelete);
+}
+
+// Fonction pour demander le nom
+function deleteHeroFromLocalStorage() {
+    const heroNameToDelete = prompt("Quel héros voulez-vous supprimer ? (Sensible à la casse)");
+    
+    if (heroNameToDelete) {
+        deleteHero(heroNameToDelete);
+    }
+}
+
+
+
+
+
+
+
+
+
 
 // ========================================
 // FEATURE 
