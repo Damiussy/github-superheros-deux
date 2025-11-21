@@ -1,3 +1,11 @@
+// ========================================
+// FEATURE STORAGE-HEROES
+// ========================================
+// 1. Stocker
+// 2. Lire
+// 3. les heros dans un heroes.json local 
+// ========================================
+
 // 1. heros.json -> liste de hero [{   "hey":"value" ;     },]
 // 2. loadHeros
 // 3. appel de loadHeros
@@ -52,8 +60,6 @@ function displayHeroes(heroes) {
 
 // Lancer l'application
 document.addEventListener('DOMContentLoaded', loadHeroes);
-
-// DANS HTML button onclick=removeHero1Item()
 
 // ========================================
 // FEATURE
