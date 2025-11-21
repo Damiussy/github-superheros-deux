@@ -1,3 +1,21 @@
+Suite du mini-projet
+A faire :
+- OK : Stocker et lire les heros dans un heroes.json local
+- Sauvegarder les heros lus dans le local storage
+- Création d’un formulaire d’ajout d’un nouveau héros
+- Ajouter ce nouveau heros au local storage depuis le formulaire js (avec addEventListener). Lors de la soumission, récupérer les valeurs des inputs et créer un nouvel objet héros.
+- Suppression d’un héros spécifique de votre liste et du local storage.
+- Création d’une barre de chargement (UX javascript). affichage des héros s’ils sont déjà sauvegardés dans le local storage, sinon rechargement depuis le fichier heros.json
+- Création d’une fonction de recherche des heros
+  
+A faire tout le long du projet :
+- Commitez vos modifications
+- Créez des branches pour chaque nouvelle petite fonctionnalité
+  
+A la fin :
+- Déployez projet sur Github et envoyez lien à mgourlaouen1@myges.fr
+
+
 # Wiki des Super-Héros
 
 Projet Git + API pour apprendre la collaboration sur GitHub.
