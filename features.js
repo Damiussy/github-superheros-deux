@@ -1,9 +1,9 @@
 // 1. heros.json -> liste de hero [{   "hey":"value" ;     },]
-// 2. TO DO loadHeros
-// 3. TO DO appel de loadHeros
-// 4. TO DO verifier qu'on retrouve les géros dans APPLICATION > Storage > LocalStorage
-// 5. TO DO puis on les affiches avec displayHeros()
-// 6. TO DO localStorage.getItem("heroes ");
+// 2. loadHeros
+// 3. appel de loadHeros
+// 4. verifier qu'on retrouve les géros dans APPLICATION > Storage > LocalStorage
+// 5. puis on les affiches avec displayHeros()
+// 6. localStorage.getItem("heroes ");
 
 // Charger les héros
 async function loadHeroes() {
