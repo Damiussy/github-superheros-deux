@@ -52,9 +52,14 @@ function displayHeroes(heroes) {
     });
 }
 
-// Création d’un formulaire d’ajout d’un nouveau héros et ajoute due nouveau heros
-// au local storage depuis form js (addEventListener). Lors de la soumission,
-// récup les valeurs des inputs et créer new objet héros.
+// ================================================================================
+// FEATURE FORM-MANAGE-HERO
+// ================================================================================
+// 1. Création d’un formulaire d’ajout d’un nouveau héros
+// 2. Ajouter ce nouveau heros au local storage depuis form js (addEventListener). 
+// Lors de la soumission, récup les valeurs des inputs et créer new objet héros.
+// ================================================================================
+
 function setupFormListener() {
     const form = document.getElementById('heroForm');
     
@@ -94,19 +99,8 @@ function setupFormListener() {
         console.log("Nouveau héros ajouté :", newHero.name);
     });
 }
-
 // Lancer l'application
 document.addEventListener('DOMContentLoaded', () => { loadHeroes(); setupFormListener(); });
-
-// ================================================================================
-// FEATURE FORM-MANAGE-HERO
-// ================================================================================
-// 1. Création d’un formulaire d’ajout d’un nouveau héros
-// 2. Ajouter ce nouveau heros au local storage depuis form js (addEventListener). 
-// Lors de la soumission, récup les valeurs des inputs et créer new objet héros.
-// ================================================================================
-
-// EN TRAIN
 
 // ==========================================================================
 // FEATURE DELETE-HERO-IN-LOCAL-STORAGE
@@ -156,3 +150,5 @@ function deleteHeroFromLocalStorage() {
 // ========================================
 // 1. Création d’une fonction de recherche des heros
 // ========================================
+
+// TO DO
