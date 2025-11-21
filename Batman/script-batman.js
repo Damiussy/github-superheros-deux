@@ -75,10 +75,15 @@ fetch("https://reqres.in/api/users", {
 })
   .then((res) => res.json())
   .then((data) => {
+    // Affiche dans la console de l'objet 
     console.log("Héros créé :", data);
+
         // Préparation de l'affichage des données dans la page batman.html
+        const container = document.getElementById('new-hero-info');
         container.innerHTML = `
-            <p><strong>Taille :</strong> ${data.appearance.height[1]}</p> 
-        `; 
+            <h2> Votre héro : </h2>
+            <p>     <strong>    Prénom :     </strong>    ${data.name}      </p>
+            <p>     <strong>    Nom :        </strong>    ${data.lastName}  </p>
+        `; // Ligne de débug pour afficher dans la page les données présentes dans l'objet retourné par l'API : <p> ${JSON.stringify(data)}</p>
     })
   .catch((err) => console.error("Erreur :", err)); 
