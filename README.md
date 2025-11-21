@@ -3,8 +3,8 @@ A faire :
 - OK : Stocker et lire les heros dans un heroes.json local
 - OK : Sauvegarder les heros lus dans le local storage
 - OK : Création d’un formulaire d’ajout d’un nouveau héros
-- EN TRAIN : Ajouter ce nouveau heros au local storage depuis le formulaire js (avec addEventListener). Lors de la soumission, récupérer les valeurs des inputs et créer un nouvel objet héros.
-- SEN TRAIN : Suppression d’un héros spécifique de votre liste et du local storage.
+- OK : Ajouter ce nouveau heros au local storage depuis le formulaire js (avec addEventListener). Lors de la soumission, récupérer les valeurs des inputs et créer un nouvel objet héros.
+- OK : Suppression d’un héros spécifique de votre liste et du local storage.
 - Création d’une barre de chargement (UX javascript). affichage des héros s’ils sont déjà sauvegardés dans le local storage, sinon rechargement depuis le fichier heros.json
 - Création d’une fonction de recherche des heros
   
