@@ -25,50 +25,60 @@ fetch(apiUrl)
     })
     .catch( ( error ) => console.log("Erreur : ", error));
 
-/* EXO1 – PREMIERE PROMESSE
-Créez une fonction chargerHeros() qui :
-    1. Attend 2 secondes,
-    2. Puis renvoie “Le héros est prêt !” si tout va bien,
-    3. Ou une erreur “Le héros s’est perdu...” sinon. */
+// ========================================================
+// EXO1 – PREMIERE PROMESSE
+// ========================================================
+// Créez une fonction chargerHeros() qui :
+// 1. Attend 2 secondes,
+// 2. Puis renvoie “Le héros est prêt !” si tout va bien,
+// 3. Ou une erreur “Le héros s’est perdu...” sinon.
+// ========================================================
 
+// Fonction qui renvoie une promesse qui annonce si l'opération a réussi ou échoué
 function chargerHeros() {
     return  new Promise((resolve, reject) => {
-        const succes = true
+        const succes = true // On met le variable de test sur true
 
-        // Fonction call back : fonct fléchée appelée dans la promesse (fonction dans une fonction)
-        // setTimeout(callbackFunction: Function, delay: number)
-        setTimeout(() => {
+        // Fonction call back : fonction fléchée exécutée apres le délai du setTimeout
+
+        setTimeout(() => {                          // setTimeout(callbackFunction: Function, delay: number) >> delai de 2 secondes
             if (succes) 
-                resolve("Le héros est prêt !");
+                resolve("Le héros est prêt !");    // Cette ligne est executée en cas réussite (resolve)
             else 
-                reject("Le héros s’est perdu...");
-        }, 1500);
+                reject("Le héros s’est perdu..."); // Cette ligne est executée en cas d'erreur (reject)
+        }, 2000);
     });
 }
 
-/* EXO 2 - API ET DOM
-Afficher dans la console : Le prénom et le nom de l’utilisateur renvoyé par l’API. 
-Puis l’afficher dans le DOM (sur votre page HTML).
+// ================================================================================
+// EXO 2 - API ET DOM
+// ================================================================================
+// 1. Afficher dans la console : prénom et nom de l’utilisateur renvoyé par l’API.
+// 2. Puis l’afficher dans le DOM (sur votre page HTML).
+// ================================================================================
 
-// Entrée de l'utilisateur qu'on va envoyer à l'API
+// Saisie de l'utilisateur (a pour but d'etre envoyée à l'API)
 var nameInput = prompt("Ton prénom :")
 var lastNameInput = prompt("Ton nom :")
 
-
+// Création de l'objet newHero qui contient le nom et prénom rentré par l'utilisateur
 const newHero = {
     name: nameInput,
     lastName : lastNameInput
 };
 
-// LE LIEN NE MARCHE PLUS
+// Envoi de la requete POST avec l'objet newHero
 fetch("https://reqres.in/api/users", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(newHero) // On transforme l’objet en texte JSON !
+  method: "POST",
+  headers: { "Content-Type": "application/json", "x-api-key": "reqres-free-v1" },
+  body: JSON.stringify(newHero) // On transforme l’objet en texte JSON
 })
-    .then((res) => res.json())
-    .then((data) => console.log("Héros créé :", data))
-    .catch((err) => console.error("Erreur :", err));
-   
-console.log("test :",JSON.stringify(newHero));
-*/
+  .then((res) => res.json())
+  .then((data) => {
+    console.log("Héros créé :", data);
+        // Préparation de l'affichage des données dans la page batman.html
+        container.innerHTML = `
+            <p><strong>Taille :</strong> ${data.appearance.height[1]}</p> 
+        `; 
+    })
+  .catch((err) => console.error("Erreur :", err)); 
