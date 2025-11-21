@@ -52,8 +52,51 @@ function displayHeroes(heroes) {
     });
 }
 
+// Création d’un formulaire d’ajout d’un nouveau héros et ajoute due nouveau heros
+// au local storage depuis form js (addEventListener). Lors de la soumission,
+// récup les valeurs des inputs et créer new objet héros.
+function setupFormListener() {
+    const form = document.getElementById('heroForm');
+    
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Empêche la page de se recharger
+
+        // Récupérer les valeurs
+        const nameInput = document.getElementById('heroName').value;
+        const realNameInput = document.getElementById('heroRealName').value;
+        const powerInput = document.getElementById('heroPower').value;
+
+        // Créer le nouvel objet héros
+        const newHero = {
+            id: Date.now(), // ID unique basé sur la date
+            name: nameInput,
+            biography: {
+                "full-name": realNameInput,
+                "publisher": "Custom"
+            },
+            stats: {
+                power: powerInput,
+                speed: Math.floor(Math.random() * 100), // Random pour simplifier...
+                strength: Math.floor(Math.random() * 100)
+            }
+        };
+
+        // Sauvegarder dans le LocalStorage
+        const currentHeroes = JSON.parse(localStorage.getItem('heroes')) || [];
+        currentHeroes.push(newHero);
+        localStorage.setItem('heroes', JSON.stringify(currentHeroes));
+
+        // Rafraîchir l'affichage
+        displayHeroes(currentHeroes);
+
+        // Vider le formulaire
+        form.reset();
+        console.log("Nouveau héros ajouté :", newHero.name);
+    });
+}
+
 // Lancer l'application
-document.addEventListener('DOMContentLoaded', loadHeroes);
+document.addEventListener('DOMContentLoaded', () => { loadHeroes(); setupFormListener(); });
 
 // ================================================================================
 // FEATURE FORM-MANAGE-HERO
@@ -97,15 +140,6 @@ function deleteHeroFromLocalStorage() {
         deleteHero(heroNameToDelete);
     }
 }
-
-
-
-
-
-
-
-
-
 
 // ========================================
 // FEATURE 
