@@ -52,3 +52,63 @@ function displayHeroes(heroes) {
 
 // Lancer l'application
 document.addEventListener('DOMContentLoaded', loadHeroes);
+
+// DANS HTML button onclick=removeHero1Item()
+
+// ========================================
+// FEATURE
+// ========================================
+// 1. Afficher dans une page html
+// ========================================
+
+// TO DO
+
+// ========================================
+// FEATURE 
+// ========================================
+// 1. Sauvegarder les heros lus dans le local storage
+// ========================================
+
+// TO DO
+
+// ========================================
+// FEATURE 
+// ========================================
+// 1. Création d’un formulaire d’ajout d’un nouveau héros
+// ========================================
+
+// TO DO
+
+// ========================================
+// FEATURE 
+// ========================================
+// 1. Ajouter ce nouveau heros au local storage depuis le formulaire js (avec
+// addEventListener). Lors de la soumission, récupérer les valeurs des inputs et
+// créer un nouvel objet héros.
+// ========================================
+
+// TO DO
+
+// ========================================
+// FEATURE 
+// ========================================
+// 1. Suppression d’un héros spécifique de votre liste et du local storage.
+// ========================================
+
+// TO DO
+
+// ========================================
+// FEATURE 
+// ========================================
+// 1. Création d’une barre de chargement (UX javascript). affichage des héros s’ils sont
+// déjà sauvegardés dans le local storage, sinon rechargement depuis le fichier
+// heros.json
+// ========================================
+
+// TO DO
+
+// ========================================
+// FEATURE 
+// ========================================
+// 1. Création d’une fonction de recherche des heros
+// ========================================
