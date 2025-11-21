@@ -62,20 +62,26 @@ function displayHeroes(heroes) {
 document.addEventListener('DOMContentLoaded', loadHeroes);
 
 // ========================================
-// FEATURE
-// ========================================
-// 1. Afficher dans une page html
-// ========================================
-
-// TO DO
-
-// ========================================
-// FEATURE 
+// FEATURE SAVE-LOCAL-HERO
 // ========================================
 // 1. Sauvegarder les heros lus dans le local storage
 // ========================================
 
-// TO DO
+// Sauvegarder
+// localStorage.setItem('heroes', JSON.stringify(heroesArray));
+
+// Récupérer
+// const heroes = JSON.parse(localStorage.getItem('heroes')) || [];
+// ● Cela permet de conserver les héros même si la page est rechargée
+
+// TO DO : FORMULAIRE POUR RENTRER LES DONNEES DU HERO QUI VONT ETRE STOCKE DANS LE LOCALSTORAGE
+
+
+
+
+
+
+
 
 // ========================================
 // FEATURE 
